@@ -11,6 +11,23 @@ body{
     top: 0px;
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.05);  
 }
+.chat{
+    padding-top: 100px;
+    padding-bottom: 100px;
+    width: 100vw;
+
+    
+}
+.message{
+    display: flex;
+    background-color: #dcdcdc;
+    height: 40px;
+    align-items: center;
+}
+.time{
+    padding-right: 10px;
+    padding-left: 10px;
+}
 .innerBar{
     font-size: 42px;
     width: 88vw;
@@ -46,5 +63,4 @@ body{
     font-style: italic;
     font-size:18px;
     color:#000000;
-    border: 0;
   }
