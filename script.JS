@@ -74,8 +74,8 @@ function sendMessage(){
         type: "message"
     }
     const messageSended = axios.post('https://mock-api.bootcamp.respondeai.com.br/api/v2/uol/messages', messageModel);
+    messageSended.then(attMessages)
     messageSended.catch(reloadPage);
 
-    chatMessage = "";
-    attMessages();
+    chatMessage.value = "";
 }
