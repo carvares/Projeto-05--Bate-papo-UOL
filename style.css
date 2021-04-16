@@ -20,9 +20,22 @@ body{
 }
 .message{
     display: flex;
-    background-color: #dcdcdc;
     height: 40px;
     align-items: center;
+}
+.public{
+    background-color: #fff;
+}
+.private{
+    background-color: #ffdede;
+}
+.status{
+    background-color: #dcdcdc;
+}
+
+.userNameStyle{
+    padding-right: 5px;
+    font-weight: bold;
 }
 .time{
     padding-right: 10px;
