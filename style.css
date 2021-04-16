@@ -77,3 +77,15 @@ body{
     font-size:18px;
     color:#000000;
   }
+  .bottomBar input{
+    font-family:'Roboto';
+    font-weight: normal;
+    font-style: normal;
+    font-size:18px;
+    color:#000000;
+    margin-left:22px;
+    border: none;
+    outline:none;
+    width:80%;
+    height:30px;
+}

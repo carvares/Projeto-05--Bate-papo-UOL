@@ -13,18 +13,26 @@ function verifyName(){
 
 }
 function mantainUser(){
-        axios.post('https://mock-api.bootcamp.respondeai.com.br/api/v2/uol/status',{name: userName});
+        let userForce = axios.post('https://mock-api.bootcamp.respondeai.com.br/api/v2/uol/status',{name: userName});
+        userForce.catch(reloadPage);
+}
+function reloadPage(){
+    window.location.reload();
 }
 
 
 let messages = axios.get('https://mock-api.bootcamp.respondeai.com.br/api/v2/uol/messages');
 messages.then(printMessages);
+function attMessages(){
+    messages = axios.get('https://mock-api.bootcamp.respondeai.com.br/api/v2/uol/messages');
+    messages.then(printMessages);
 
+}
 
 function printMessages(content){
     let bodyChat = document.querySelector(".chat");
 
-
+    let allMessages; 
     for(i = 0; i < content.data.length; i++){
     var messageContent;
     if (content.data[i].type === "status"){
@@ -48,6 +56,26 @@ function printMessages(content){
     <strong class ="userNameStyle">${content.data[i].from}</strong> ${content.data[i].text}
     </div>`
     }
-    bodyChat.innerHTML += messageContent;
+    allMessages += messageContent;
+    bodyChat.innerHTML = allMessages;
+    document.body.scrollTop = document.body.scrollHeight;       
+    document.documentElement.scrollTop = document.documentElement.scrollHeight; 
     }
+}
+setInterval(attMessages, 3000);
+
+function sendMessage(){
+   let chatMessage =  document.querySelector("input");
+    
+    const messageModel= {
+        from: userName,
+        to: "todos",
+        text: chatMessage.value,
+        type: "message"
+    }
+    const messageSended = axios.post('https://mock-api.bootcamp.respondeai.com.br/api/v2/uol/messages', messageModel);
+    messageSended.catch(reloadPage);
+
+    chatMessage = "";
+    attMessages();
 }
